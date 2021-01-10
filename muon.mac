@@ -1,0 +1,126 @@
+# $Id: muon.mac 10-12-2020 pasenov
+#
+# macro file for MuonESim.cc
+#
+#
+/process/eLoss/CSDARange true
+#
+/control/verbose 2
+/run/verbose 2
+#
+#/testem/det/setMatT Graphite
+
+#
+/testem/phys/addPhysics emstandard_opt4
+#
+/run/setCut 1 um
+#
+/run/initialize
+#
+#/gps/particle proton
+#/gps/direction 0 0 1
+#/gps/ene/type Gauss
+#/gps/ene/mono 25 MeV
+#/gps/ene/min 24.8 MeV
+#/gps/ene/max 25 MeV
+#/gps/ene/sigma 100 keV
+#/gps/position 0 -0.1 -23.5 cm
+#/gps/pos/type Beam
+#/gps/pos/shape Ellipsoid
+#/gps/pos/shape Circle
+#/gps/pos/sigma_r 2.123 mm
+#/gps/pos/halfx 2.123 mm
+#/gps/pos/halfy 2.123 mm
+#/gps/pos/halfz 0.5 cm
+
+/gps/particle mu+
+/gps/direction 0 0 1
+/gps/ene/type Gauss
+/gps/ene/mono 150 GeV
+#/gps/ene/sigma 100 keV
+/gps/position 0 0 -2 cm
+/gps/pos/type Beam
+/gps/pos/shape Circle
+/gps/pos/sigma_r 2.123 um
+
+#FHWM = 2.355*sigmaX = 2.355*sigmaY = 2.355*halfx = 2.355*halfy
+#
+/analysis/setFileName muon
+# 
+
+
+/analysis/h1/set 1 1601 -0.5 160.5 GeV
+/analysis/h1/setXaxis 1 "Energy of primary muons at the exit of the target (GeV)"
+/analysis/h1/setYaxis 1 "Number of entries per bin"
+
+/analysis/h1/set 2 1601 -0.5 160.5 GeV
+/analysis/h1/setXaxis 2 "Energy of secondary positrons at the exit of the target (GeV)"
+/analysis/h1/setYaxis 2 "Number of entries per bin"
+
+/analysis/h1/set 3 1601 -0.5 160.5 GeV
+/analysis/h1/setXaxis 3 "Energy of secondary electrons at the exit of the target (GeV)"
+/analysis/h1/setYaxis 3 "Number of entries per bin"
+
+/analysis/h1/set 4 1601 -0.5 160.5 GeV
+/analysis/h1/setXaxis 4 "Energy of secondary muons plus at the exit of the target (GeV)"
+/analysis/h1/setYaxis 4 "Number of entries per bin"
+
+/analysis/h1/set 5 1601 -0.5 160.5 GeV
+/analysis/h1/setXaxis 5 "Energy of secondary muons minus at the exit of the target (GeV)"
+/analysis/h1/setYaxis 5 "Number of entries per bin"
+
+/analysis/h1/set 6 1000 0 0.0006
+/analysis/h1/setXaxis 6 "Angle of primary muons at the exit of the target (rad)"
+/analysis/h1/setYaxis 6 "Number of entries per bin"
+
+/analysis/h1/set 7 1000 0 0.031
+/analysis/h1/setXaxis 7 "Angle of secondary positrons at the exit of the target (rad)"
+/analysis/h1/setYaxis 7 "Number of entries per bin"
+
+/analysis/h1/set 8 1000 0 0.031
+/analysis/h1/setXaxis 8 "Angle of secondary electrons at the exit of the target (rad)"
+/analysis/h1/setYaxis 8 "Number of entries per bin"
+
+/analysis/h1/set 9 1000 0 0.031
+/analysis/h1/setXaxis 9 "Angle of secondary muons plus at the exit of the target (rad)"
+/analysis/h1/setYaxis 9 "Number of entries per bin"
+
+/analysis/h1/set 10 1000 0 0.031
+/analysis/h1/setXaxis 10 "Angle of secondary muons minus at the exit of the target (rad)"
+/analysis/h1/setYaxis 10 "Number of entries per bin"
+
+/analysis/h1/set 11 5 -0.5 4.5
+/analysis/h1/setXaxis 11 "Process ID"
+/analysis/h1/setYaxis 11 "Number of entries per bin"
+
+
+/analysis/h2/setX 1 1000 0 0.0006
+/analysis/h2/setXaxis 1 "Angle of primary muon (rad)"
+/analysis/h2/setY 1 1000 0 0.031
+/analysis/h2/setYaxis 1 "Angle of secondary positron (rad)"
+/analysis/h2/setZaxis 1 "Number of entries per bin"
+
+/analysis/h2/setX 2 1000 0 0.0006
+/analysis/h2/setXaxis 2 "Angle of primary muon (rad)"
+/analysis/h2/setY 2 1000 0 0.031
+/analysis/h2/setYaxis 2 "Angle of secondary electron (rad)"
+/analysis/h2/setZaxis 2 "Number of entries per bin"
+
+/analysis/h2/setX 3 1000 0 0.0006
+/analysis/h2/setXaxis 3 "Angle of primary muon (rad)"
+/analysis/h2/setY 3 1000 0 0.031
+/analysis/h2/setYaxis 3 "Angle of secondary muons plus (rad)"
+/analysis/h2/setZaxis 3 "Number of entries per bin"
+
+/analysis/h2/setX 4 1000 0 0.0006
+/analysis/h2/setXaxis 4 "Angle of primary muon (rad)"
+/analysis/h2/setY 4 1000 0 0.031
+/analysis/h2/setYaxis 4 "Angle of secondary muons minus (rad)"
+/analysis/h2/setZaxis 4 "Number of entries per bin"
+
+#
+/run/printProgress 1000
+#
+#/random/setSeeds 5 6
+/run/beamOn 10000
+#/vis/reviewKeptEvents
