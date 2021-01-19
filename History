@@ -5,3 +5,5 @@ processID = 1; //ionization
 processID = 2; //pair production
 processID = 3; //Bremsstrahlung
 processID = 4; //nuclear interaction
+
+19/1/2021 Version 3: Axis range in some energy histograms increased.

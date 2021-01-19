@@ -94,25 +94,25 @@
 /analysis/h1/setYaxis 11 "Number of entries per bin"
 
 
-/analysis/h2/setX 1 1000 0 0.0006
+/analysis/h2/setX 1 1000 0 0.0024
 /analysis/h2/setXaxis 1 "Angle of primary muon (rad)"
 /analysis/h2/setY 1 1000 0 0.031
 /analysis/h2/setYaxis 1 "Angle of secondary positron (rad)"
 /analysis/h2/setZaxis 1 "Number of entries per bin"
 
-/analysis/h2/setX 2 1000 0 0.0006
+/analysis/h2/setX 2 1000 0 0.0024
 /analysis/h2/setXaxis 2 "Angle of primary muon (rad)"
 /analysis/h2/setY 2 1000 0 0.031
 /analysis/h2/setYaxis 2 "Angle of secondary electron (rad)"
 /analysis/h2/setZaxis 2 "Number of entries per bin"
 
-/analysis/h2/setX 3 1000 0 0.0006
+/analysis/h2/setX 3 1000 0 0.0024
 /analysis/h2/setXaxis 3 "Angle of primary muon (rad)"
 /analysis/h2/setY 3 1000 0 0.031
 /analysis/h2/setYaxis 3 "Angle of secondary muons plus (rad)"
 /analysis/h2/setZaxis 3 "Number of entries per bin"
 
-/analysis/h2/setX 4 1000 0 0.0006
+/analysis/h2/setX 4 1000 0 0.0024
 /analysis/h2/setXaxis 4 "Angle of primary muon (rad)"
 /analysis/h2/setY 4 1000 0 0.031
 /analysis/h2/setYaxis 4 "Angle of secondary muons minus (rad)"
