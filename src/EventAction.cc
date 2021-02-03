@@ -80,10 +80,11 @@ EventAction::~EventAction()
 void EventAction::BeginOfEventAction(const G4Event* evt)
 {
 
- fEnergyExitTargetPrimary = fEnergyExitTargetSecondaryPositron = fEnergyExitTargetSecondaryElectron = fEnergyExitTargetSecondaryMuonPlus = fEnergyExitTargetSecondaryMuonMinus = 0.;
- fAnglePrimary = fAngleSecondaryPositron = fAngleSecondaryElectron = fAngleSecondaryMuonPlus = fAngleSecondaryMuonMinus = 0.;
+ fEnergyExitTargetPrimary = fEnergyExitTargetSecondaryPositron = fEnergyExitTargetSecondaryElectron = fEnergyExitTargetSecondaryMuonPlus = fEnergyExitTargetSecondaryMuonMinus = fEnergyExitTargetCharged = fEnergyExitTargetChargedCut05GeV = fEnergyExitTargetChargedCut1GeV = fEnergyExitTargetIoni = fEnergyExitTargetPP1 = fEnergyExitTargetPP2 = fEnergyExitTargetIoniCut05GeV = fEnergyExitTargetPP1Cut05GeV = fEnergyExitTargetPP2Cut05GeV = fEnergyExitTargetIoniCut1GeV = fEnergyExitTargetPP1Cut1GeV = fEnergyExitTargetPP2Cut1GeV = 0.;
+ fAnglePrimary = fAngleSecondaryPositron = fAngleSecondaryElectron = fAngleSecondaryMuonPlus = fAngleSecondaryMuonMinus = fAngleCharged = fAngleChargedCut05GeV = fAngleChargedCut1GeV = fAngleIoni = fAnglePP1 = fAnglePP2 = fAngleIoniCut05GeV = fAnglePP1Cut05GeV = fAnglePP2Cut05GeV = fAngleIoniCut1GeV = fAnglePP1Cut1GeV = fAnglePP2Cut1GeV = 0.;
 
- fBoolPrim = fBoolSecPositron = fBoolSecElectron = fBoolSecMuonPlus = fBoolSecMuonMinus = 0;
+ fBoolPrim = fBoolSecPositron = fBoolSecElectron = fBoolSecMuonPlus = fBoolSecMuonMinus = fBoolCharged = fBoolChargedCut05GeV = fBoolChargedCut1GeV = fBooleIoni = fBoolePP1 = fBoolePP2 = fBooleIoniCut05GeV = fBoolePP1Cut05GeV = fBoolePP2Cut05GeV = fBooleIoniCut1GeV = fBoolePP1Cut1GeV = fBoolePP2Cut1GeV = 0;
+ fNbTracks = fNbTracksCut05GeV = fNbTracksCut1GeV = 0;
 
 }
 
@@ -116,39 +117,176 @@ void EventAction::EndOfEventAction(const G4Event* evt)
  if (fBoolPrim == 1)  {
     analysisManager->FillH1(1, fEnergyExitTargetPrimary);
     analysisManager->FillH1(6, fAnglePrimary);
+    analysisManager->FillNtupleDColumn(1, fEnergyExitTargetPrimary);
+    analysisManager->FillNtupleDColumn(6, fAnglePrimary);
  }
  if (fBoolSecPositron == 1)  {
     analysisManager->FillH1(2, fEnergyExitTargetSecondaryPositron);
     analysisManager->FillH1(7, fAngleSecondaryPositron);
+    analysisManager->FillNtupleDColumn(2, fEnergyExitTargetSecondaryPositron);
+    analysisManager->FillNtupleDColumn(7, fAngleSecondaryPositron);
  }
  if (fBoolSecElectron == 1)  {
     analysisManager->FillH1(3, fEnergyExitTargetSecondaryElectron);
     analysisManager->FillH1(8, fAngleSecondaryElectron);
+    analysisManager->FillNtupleDColumn(3, fEnergyExitTargetSecondaryElectron);
+    analysisManager->FillNtupleDColumn(8, fAngleSecondaryElectron);
  }
  if (fBoolSecMuonPlus == 1)  {
     analysisManager->FillH1(4, fEnergyExitTargetSecondaryMuonPlus);
     analysisManager->FillH1(9, fAngleSecondaryMuonPlus);
+    analysisManager->FillNtupleDColumn(4, fEnergyExitTargetSecondaryMuonPlus);
+    analysisManager->FillNtupleDColumn(9, fAngleSecondaryMuonPlus);
  }
  if (fBoolSecMuonMinus == 1)  {
     analysisManager->FillH1(5, fEnergyExitTargetSecondaryMuonMinus);
     analysisManager->FillH1(10, fAngleSecondaryMuonMinus);
+    analysisManager->FillNtupleDColumn(5, fEnergyExitTargetSecondaryMuonMinus);
+    analysisManager->FillNtupleDColumn(10, fAngleSecondaryMuonMinus);
+ }
+ if (fBoolCharged == 1)  {
+    analysisManager->FillH1(12, fEnergyExitTargetCharged);
+    analysisManager->FillH1(13, fAngleCharged);
+    analysisManager->FillNtupleDColumn(12, fEnergyExitTargetCharged);
+    analysisManager->FillNtupleDColumn(13, fAngleCharged);
+    
+    analysisManager->FillH1(18, fNbTracks);
+    analysisManager->FillNtupleDColumn(18, fNbTracks);
+ }
+ if (fBoolChargedCut05GeV == 1)  {
+    analysisManager->FillH1(14, fEnergyExitTargetChargedCut05GeV);
+    analysisManager->FillH1(15, fAngleChargedCut05GeV);
+    analysisManager->FillNtupleDColumn(14, fEnergyExitTargetChargedCut05GeV);
+    analysisManager->FillNtupleDColumn(15, fAngleChargedCut05GeV);
+    
+    analysisManager->FillH1(19, fNbTracksCut05GeV);
+    analysisManager->FillNtupleDColumn(19, fNbTracksCut05GeV);
+ }
+ if (fBoolChargedCut1GeV == 1)  {
+    analysisManager->FillH1(16, fEnergyExitTargetChargedCut1GeV);
+    analysisManager->FillH1(17, fAngleChargedCut1GeV);
+    analysisManager->FillNtupleDColumn(16, fEnergyExitTargetChargedCut1GeV);
+    analysisManager->FillNtupleDColumn(17, fAngleChargedCut1GeV);
+    
+    analysisManager->FillH1(20, fNbTracksCut1GeV);
+    analysisManager->FillNtupleDColumn(20, fNbTracksCut1GeV);
+ }
+ 
+ if (fBooleIoni == 1)  {
+    analysisManager->FillH1(21, fEnergyExitTargetIoni);
+    analysisManager->FillH1(27, fAngleIoni);
+    
+    analysisManager->FillNtupleDColumn(21, fEnergyExitTargetIoni);
+    analysisManager->FillNtupleDColumn(27, fAngleIoni);
+ }
+ if (fBoolePP1 == 1)  {
+    analysisManager->FillH1(22, fEnergyExitTargetPP1);
+    analysisManager->FillH1(28, fAnglePP1);
+    
+    analysisManager->FillNtupleDColumn(22, fEnergyExitTargetPP1);
+    analysisManager->FillNtupleDColumn(28, fAnglePP1);
+ }
+ if (fBoolePP2 == 1)  {
+    analysisManager->FillH1(22, fEnergyExitTargetPP2);
+    analysisManager->FillH1(28, fAnglePP2);
+    
+    analysisManager->FillNtupleDColumn(22, fEnergyExitTargetPP2);
+    analysisManager->FillNtupleDColumn(28, fAnglePP2);
+ }
+ 
+ if (fBooleIoniCut05GeV == 1)  {
+    analysisManager->FillH1(23, fEnergyExitTargetIoniCut05GeV);
+    analysisManager->FillH1(29, fAngleIoniCut05GeV);
+    
+    analysisManager->FillNtupleDColumn(23, fEnergyExitTargetIoniCut05GeV);
+    analysisManager->FillNtupleDColumn(29, fAngleIoniCut05GeV);
+ }
+ if (fBoolePP1Cut05GeV == 1)  {
+    analysisManager->FillH1(24, fEnergyExitTargetPP1Cut05GeV);
+    analysisManager->FillH1(30, fAnglePP1Cut05GeV);
+    
+    analysisManager->FillNtupleDColumn(24, fEnergyExitTargetPP1Cut05GeV);
+    analysisManager->FillNtupleDColumn(30, fAnglePP1Cut05GeV);
+ }
+ if (fBoolePP2Cut05GeV == 1)  {
+    analysisManager->FillH1(24, fEnergyExitTargetPP2Cut05GeV);
+    analysisManager->FillH1(30, fAnglePP2Cut05GeV);
+    
+    analysisManager->FillNtupleDColumn(24, fEnergyExitTargetPP2Cut05GeV);
+    analysisManager->FillNtupleDColumn(30, fAnglePP2Cut05GeV);
+ }
+ 
+ if (fBooleIoniCut1GeV == 1)  {
+    analysisManager->FillH1(25, fEnergyExitTargetIoniCut1GeV);
+    analysisManager->FillH1(31, fAngleIoniCut1GeV);
+    
+    analysisManager->FillNtupleDColumn(25, fEnergyExitTargetIoniCut1GeV);
+    analysisManager->FillNtupleDColumn(31, fAngleIoniCut1GeV);
+ }
+ if (fBoolePP1Cut1GeV == 1)  {
+    analysisManager->FillH1(26, fEnergyExitTargetPP1Cut1GeV);
+    analysisManager->FillH1(32, fAnglePP1Cut1GeV);
+    
+    analysisManager->FillNtupleDColumn(26, fEnergyExitTargetPP1Cut1GeV);
+    analysisManager->FillNtupleDColumn(32, fAnglePP1Cut1GeV);
+ }
+ if (fBoolePP2Cut1GeV == 1)  {
+    analysisManager->FillH1(26, fEnergyExitTargetPP2Cut1GeV);
+    analysisManager->FillH1(32, fAnglePP2Cut1GeV);
+    
+    analysisManager->FillNtupleDColumn(26, fEnergyExitTargetPP2Cut1GeV);
+    analysisManager->FillNtupleDColumn(32, fAnglePP2Cut1GeV);
  }
 
  if ((fBoolPrim == 1) && (fBoolSecPositron == 1))  {
-    analysisManager->FillH2(1, fAnglePrimary, fAngleSecondaryPositron);
+    analysisManager->FillH2(1, fAngleSecondaryPositron, fAnglePrimary);
  }
  if ((fBoolPrim == 1) && (fBoolSecElectron == 1))  {
-    analysisManager->FillH2(2, fAnglePrimary, fAngleSecondaryElectron);
+    analysisManager->FillH2(2, fAngleSecondaryElectron, fAnglePrimary);
     /*G4cout 
        << "\n Filling histogram 2."
        << G4endl;*/
  }
  if ((fBoolPrim == 1) && (fBoolSecMuonPlus == 1))  {
-    analysisManager->FillH2(3, fAnglePrimary, fAngleSecondaryMuonPlus);
+    analysisManager->FillH2(3, fAngleSecondaryMuonPlus, fAnglePrimary);
  }
  if ((fBoolPrim == 1) && (fBoolSecMuonMinus == 1))  {
-    analysisManager->FillH2(4, fAnglePrimary, fAngleSecondaryMuonMinus);
+    analysisManager->FillH2(4, fAngleSecondaryMuonMinus, fAnglePrimary);
  }
+ 
+ if ((fBoolPrim == 1) && (fBooleIoni == 1))  {
+    analysisManager->FillH2(5, fAngleIoni, fAnglePrimary);
+ }
+ if ((fBoolPrim == 1) && (fBoolePP1 == 1))  {
+    analysisManager->FillH2(6, fAnglePP1, fAnglePrimary);
+ }
+ if ((fBoolPrim == 1) && (fBoolePP2 == 1))  {
+    analysisManager->FillH2(6, fAnglePP2, fAnglePrimary);
+ }
+ 
+ if ((fBoolPrim == 1) && (fBooleIoniCut05GeV == 1))  {
+    analysisManager->FillH2(7, fAngleIoniCut05GeV, fAnglePrimary);
+ }
+ if ((fBoolPrim == 1) && (fBoolePP1Cut05GeV == 1))  {
+    analysisManager->FillH2(8, fAnglePP1Cut05GeV, fAnglePrimary);
+ }
+ if ((fBoolPrim == 1) && (fBoolePP2Cut05GeV == 1))  {
+    analysisManager->FillH2(8, fAnglePP2Cut05GeV, fAnglePrimary);
+ }
+ 
+ if ((fBoolPrim == 1) && (fBooleIoniCut1GeV == 1))  {
+    analysisManager->FillH2(9, fAngleIoniCut1GeV, fAnglePrimary);
+ }
+ if ((fBoolPrim == 1) && (fBoolePP1Cut1GeV == 1))  {
+    analysisManager->FillH2(10, fAnglePP1Cut1GeV, fAnglePrimary);
+ }
+ if ((fBoolPrim == 1) && (fBoolePP2Cut1GeV == 1))  {
+    analysisManager->FillH2(10, fAnglePP2Cut1GeV, fAnglePrimary);
+ }
+ 
+ 
+ 
+ analysisManager->AddNtupleRow();
 
  //Visualize event if there is a condition
  //if (condition)  {

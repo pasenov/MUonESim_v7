@@ -120,6 +120,9 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
   //kinetic energies when exiting target
   G4double ekinPre;
   G4double ekinPost;
+  
+  //charge of secondaries
+  G4double charge;
 
   //get track length, track ID, track length, global time and track's vertex position of the current step
   G4Track* track = step->GetTrack();
@@ -207,17 +210,67 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
 	   ekinPost = post->GetKineticEnergy();
 	   pointExSecT = post->GetPosition();
 	   processName = track->GetCreatorProcess()->G4VProcess::GetProcessName();
+	   
+	   momDirSx = track->GetMomentumDirection().x();
+	   momDirSy = track->GetMomentumDirection().y();
+	   momDirSz = track->GetMomentumDirection().z();
+
+ 	   angleSec = acos(0*momDirSx + 0*momDirSy + 1*momDirSz);
+	   
+	   charge = post->GetCharge();
 
 	   if (track->GetLogicalVolumeAtVertex() == fDetectorconstruction->GetLTarget())  {
+	   
+	      if(charge != 0)   {
+	         if ((angleSec < 30*mrad) && (ekinPost > 0.0*GeV) ) {
+	            fEventaction->AddAngleCharged(angleSec);
+	      	    fEventaction->AddEnergyExitTargetCharged(ekinPost);
+	      	    fEventaction->AddNbTracks();
+	      	    
+	      	    if (processName == "muIoni")  {
+	      	       fEventaction->AddAngleIoni(angleSec);
+	      	       fEventaction->AddEnergyExitTargetIoni(ekinPost);
+	      	    }
+	      	    
+	      	    if (processName == "muPairProd")  {
+	      	       fEventaction->AddAnglePP(angleSec);
+	      	       fEventaction->AddEnergyExitTargetPP(ekinPost);
+	      	    }
+	      	 }
+	         if ((angleSec < 30*mrad) && (ekinPost > 0.5*GeV) ) {
+	            fEventaction->AddAngleChargedCut05GeV(angleSec);
+	      	    fEventaction->AddEnergyExitTargetChargedCut05GeV(ekinPost);
+	      	    fEventaction->AddNbTracksCut05GeV();
+	      	    
+	      	    if (processName == "muIoni")  {
+	      	       fEventaction->AddAngleIoniCut05GeV(angleSec);
+	      	       fEventaction->AddEnergyExitTargetIoniCut05GeV(ekinPost);
+	      	    }
+	      	    
+	      	    if (processName == "muPairProd")  {
+	      	       fEventaction->AddAnglePPCut05GeV(angleSec);
+	      	       fEventaction->AddEnergyExitTargetPPCut05GeV(ekinPost);
+	      	    }
+	      	 }
+	      	 if ((angleSec < 30*mrad) && (ekinPost > 1.0*GeV) ) {
+	      	    fEventaction->AddAngleChargedCut1GeV(angleSec);
+	      	    fEventaction->AddEnergyExitTargetChargedCut1GeV(ekinPost);
+	      	    fEventaction->AddNbTracksCut1GeV();
+	      	    
+	      	    if (processName == "muIoni")  {
+	      	       fEventaction->AddAngleIoniCut1GeV(angleSec);
+	      	       fEventaction->AddEnergyExitTargetIoniCut1GeV(ekinPost);
+	      	    }
+	      	    
+	      	    if (processName == "muPairProd")  {
+	      	       fEventaction->AddAnglePPCut1GeV(angleSec);
+	      	       fEventaction->AddEnergyExitTargetPPCut1GeV(ekinPost);
+	      	    }
+	      	 }
+	         
+	      }
 
 	      if(particleDefinition == G4Positron::Definition())   {
-
-	         momDirSx = track->GetMomentumDirection().x();
-	         momDirSy = track->GetMomentumDirection().y();
-	         momDirSz = track->GetMomentumDirection().z();
-
- 	         angleSec = acos(0*momDirSx + 0*momDirSy + 1*momDirSz);
-
                  /*G4cout 
                     << "\n Secondary positron has exited target at: " 
                     << G4BestUnit(pointExSecT, "Length")
@@ -238,6 +291,8 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
 	            if (processName == "muBrems") processID = 3; //Bremsstrahlung
 	            if (processName == "muNucl") processID = 4; //nuclear interaction
 	            analysisManager->FillH1(11, processID);
+	            analysisManager->FillNtupleDColumn(11, processID);
+	            analysisManager->AddNtupleRow();
 	            
 	            /*G4cout
                        << "\n Positron created due to: "
@@ -248,13 +303,6 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
 	      }
 
 	      if(particleDefinition == G4Electron::Definition())   {
-
-	         momDirSx = track->GetMomentumDirection().x();
-	         momDirSy = track->GetMomentumDirection().y();
-	         momDirSz = track->GetMomentumDirection().z();
-
- 	         angleSec = acos(0*momDirSx + 0*momDirSy + 1*momDirSz);
-
                  /*G4cout 
                     << "\n Secondary electron has exited target at: " 
                     << G4BestUnit(pointExSecT, "Length")
@@ -289,13 +337,6 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
 	      }
 
 	      if(particleDefinition == G4MuonPlus::Definition())   {
-
-	         momDirSx = track->GetMomentumDirection().x();
-	         momDirSy = track->GetMomentumDirection().y();
-	         momDirSz = track->GetMomentumDirection().z();
-
- 	         angleSec = acos(0*momDirSx + 0*momDirSy + 1*momDirSz);
-
                  /*G4cout 
                     << "\n Secondary muon plus has exited target at: " 
                     << G4BestUnit(pointExSecT, "Length")
@@ -315,13 +356,6 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
 	      }
 
 	      if(particleDefinition == G4MuonMinus::Definition())   {
-
-	         momDirSx = track->GetMomentumDirection().x();
-	         momDirSy = track->GetMomentumDirection().y();
-	         momDirSz = track->GetMomentumDirection().z();
-
- 	         angleSec = acos(0*momDirSx + 0*momDirSy + 1*momDirSz);
-
                  /*G4cout 
                     << "\n Secondary muon minus has exited target at: " 
                     << G4BestUnit(pointExSecT, "Length")

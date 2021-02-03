@@ -69,23 +69,23 @@
 /analysis/h1/setXaxis 5 "Energy of secondary muons minus at the exit of the target (GeV)"
 /analysis/h1/setYaxis 5 "Number of entries per bin"
 
-/analysis/h1/set 6 1000 0 0.0006
+/analysis/h1/set 6 1000 0 0.005
 /analysis/h1/setXaxis 6 "Angle of primary muons at the exit of the target (rad)"
 /analysis/h1/setYaxis 6 "Number of entries per bin"
 
-/analysis/h1/set 7 1000 0 0.031
+/analysis/h1/set 7 100 0 0.031
 /analysis/h1/setXaxis 7 "Angle of secondary positrons at the exit of the target (rad)"
 /analysis/h1/setYaxis 7 "Number of entries per bin"
 
-/analysis/h1/set 8 1000 0 0.031
+/analysis/h1/set 8 100 0 0.031
 /analysis/h1/setXaxis 8 "Angle of secondary electrons at the exit of the target (rad)"
 /analysis/h1/setYaxis 8 "Number of entries per bin"
 
-/analysis/h1/set 9 1000 0 0.031
+/analysis/h1/set 9 100 0 0.031
 /analysis/h1/setXaxis 9 "Angle of secondary muons plus at the exit of the target (rad)"
 /analysis/h1/setYaxis 9 "Number of entries per bin"
 
-/analysis/h1/set 10 1000 0 0.031
+/analysis/h1/set 10 100 0 0.031
 /analysis/h1/setXaxis 10 "Angle of secondary muons minus at the exit of the target (rad)"
 /analysis/h1/setYaxis 10 "Number of entries per bin"
 
@@ -93,30 +93,155 @@
 /analysis/h1/setXaxis 11 "Process ID"
 /analysis/h1/setYaxis 11 "Number of entries per bin"
 
+/analysis/h1/set 12 1601 -0.5 160.5 GeV
+/analysis/h1/setXaxis 12 "Energy of charged particles at the exit of the target (GeV)"
+/analysis/h1/setYaxis 12 "Number of entries per bin"
 
-/analysis/h2/setX 1 1000 0 0.0024
-/analysis/h2/setXaxis 1 "Angle of primary muon (rad)"
-/analysis/h2/setY 1 1000 0 0.031
-/analysis/h2/setYaxis 1 "Angle of secondary positron (rad)"
+/analysis/h1/set 13 100 0 0.031
+/analysis/h1/setXaxis 13 "Angle of charged particles at the exit of the target (rad)"
+/analysis/h1/setYaxis 13 "Number of entries per bin"
+
+/analysis/h1/set 14 1601 -0.5 160.5 GeV
+/analysis/h1/setXaxis 14 "Energy of charged particles at the exit of the target, cut 0.5 GeV (GeV)"
+/analysis/h1/setYaxis 14 "Number of entries per bin"
+
+/analysis/h1/set 15 100 0 0.031
+/analysis/h1/setXaxis 15 "Angle of charged particles at the exit of the target, cut 0.5 GeV (rad)"
+/analysis/h1/setYaxis 15 "Number of entries per bin"
+
+/analysis/h1/set 16 1601 -0.5 160.5 GeV
+/analysis/h1/setXaxis 16 "Energy of charged particles at the exit of the target, cut 1 GeV (GeV)"
+/analysis/h1/setYaxis 16 "Number of entries per bin"
+
+/analysis/h1/set 17 100 0 0.031
+/analysis/h1/setXaxis 17 "Angle of charged particles at the exit of the target, cut 1 GeV (rad)"
+/analysis/h1/setYaxis 17 "Number of entries per bin"
+
+/analysis/h1/set 18 11 -0.5 10.5
+/analysis/h1/setXaxis 18 "Number of charged tracks, angle < 30 mrad"
+/analysis/h1/setYaxis 18 "Number of entries per bin"
+
+/analysis/h1/set 19 11 -0.5 10.5
+/analysis/h1/setXaxis 19 "Number of charged tracks, angle < 30 mrad, cut 0.5 GeV"
+/analysis/h1/setYaxis 19 "Number of entries per bin"
+
+/analysis/h1/set 20 11 -0.5 10.5
+/analysis/h1/setXaxis 20 "Number of charged tracks, angle < 30 mrad, cut 1 GeV"
+/analysis/h1/setYaxis 20 "Number of entries per bin"
+
+/analysis/h1/set 21 1601 -0.5 160.5 GeV
+/analysis/h1/setXaxis 21 "Energy of secondary e at the exit of the target, ionization (GeV)"
+/analysis/h1/setYaxis 21 "Number of entries per bin"
+
+/analysis/h1/set 22 1601 -0.5 160.5 GeV
+/analysis/h1/setXaxis 22 "Energy of secondary e at the exit of the target, pair production (GeV)"
+/analysis/h1/setYaxis 22 "Number of entries per bin"
+
+/analysis/h1/set 23 1601 -0.5 160.5 GeV
+/analysis/h1/setXaxis 23 "Energy of secondary e at the exit of the target, ionization, cut 0.5 GeV (GeV)"
+/analysis/h1/setYaxis 23 "Number of entries per bin"
+
+/analysis/h1/set 24 1601 -0.5 160.5 GeV
+/analysis/h1/setXaxis 24 "Energy of secondary e at the exit of the target, pair production, cut 0.5 GeV (GeV)"
+/analysis/h1/setYaxis 24 "Number of entries per bin"
+
+/analysis/h1/set 25 1601 -0.5 160.5 GeV
+/analysis/h1/setXaxis 25 "Energy of secondary e at the exit of the target, ionization, cut 1 GeV (GeV)"
+/analysis/h1/setYaxis 25 "Number of entries per bin"
+
+/analysis/h1/set 26 1601 -0.5 160.5 GeV
+/analysis/h1/setXaxis 26 "Energy of secondary e at the exit of the target, pair production, cut 1 GeV (GeV)"
+/analysis/h1/setYaxis 26 "Number of entries per bin"
+
+/analysis/h1/set 27 100 0 0.031
+/analysis/h1/setXaxis 27 "Angle of secondary e at the exit of the target, ionization (rad)"
+/analysis/h1/setYaxis 27 "Number of entries per bin"
+
+/analysis/h1/set 28 100 0 0.031
+/analysis/h1/setXaxis 28 "Angle of secondary e at the exit of the target, pair production (rad)"
+/analysis/h1/setYaxis 28 "Number of entries per bin"
+
+/analysis/h1/set 29 100 0 0.031
+/analysis/h1/setXaxis 29 "Angle of secondary e at the exit of the target, ionization, cut 0.5 GeV (rad)"
+/analysis/h1/setYaxis 29 "Number of entries per bin"
+
+/analysis/h1/set 30 100 0 0.031
+/analysis/h1/setXaxis 30 "Angle of secondary e at the exit of the target, pair production, cut 0.5 GeV (rad)"
+/analysis/h1/setYaxis 30 "Number of entries per bin"
+
+/analysis/h1/set 31 100 0 0.031
+/analysis/h1/setXaxis 31 "Angle of secondary e at the exit of the target, ionization, cut 1 GeV (rad)"
+/analysis/h1/setYaxis 31 "Number of entries per bin"
+
+/analysis/h1/set 32 100 0 0.031
+/analysis/h1/setXaxis 32 "Angle of secondary e at the exit of the target, pair production, cut 1 GeV (rad)"
+/analysis/h1/setYaxis 32 "Number of entries per bin"
+
+
+
+/analysis/h2/setX 1 100 0 0.031
+/analysis/h2/setXaxis 1 "Angle of secondary positron (rad)"
+/analysis/h2/setY 1 100 0 0.005
+/analysis/h2/setYaxis 1 "Angle of primary muon (rad)"
 /analysis/h2/setZaxis 1 "Number of entries per bin"
 
-/analysis/h2/setX 2 1000 0 0.0024
-/analysis/h2/setXaxis 2 "Angle of primary muon (rad)"
-/analysis/h2/setY 2 1000 0 0.031
-/analysis/h2/setYaxis 2 "Angle of secondary electron (rad)"
+/analysis/h2/setX 2 100 0 0.031
+/analysis/h2/setXaxis 2 "Angle of secondary electron (rad)"
+/analysis/h2/setY 2 100 0 0.005
+/analysis/h2/setYaxis 2 "Angle of primary muon (rad)"
 /analysis/h2/setZaxis 2 "Number of entries per bin"
 
-/analysis/h2/setX 3 1000 0 0.0024
-/analysis/h2/setXaxis 3 "Angle of primary muon (rad)"
-/analysis/h2/setY 3 1000 0 0.031
-/analysis/h2/setYaxis 3 "Angle of secondary muons plus (rad)"
+/analysis/h2/setX 3 100 0 0.031
+/analysis/h2/setXaxis 3 "Angle of secondary muons plus (rad)"
+/analysis/h2/setY 3 100 0 0.005
+/analysis/h2/setYaxis 3 "Angle of primary muon (rad)"
 /analysis/h2/setZaxis 3 "Number of entries per bin"
 
-/analysis/h2/setX 4 1000 0 0.0024
-/analysis/h2/setXaxis 4 "Angle of primary muon (rad)"
-/analysis/h2/setY 4 1000 0 0.031
-/analysis/h2/setYaxis 4 "Angle of secondary muons minus (rad)"
+/analysis/h2/setX 4 100 0 0.031
+/analysis/h2/setXaxis 4 "Angle of secondary muons minus (rad (rad)"
+/analysis/h2/setY 4 100 0 0.005
+/analysis/h2/setYaxis 4 "Angle of primary muon"
 /analysis/h2/setZaxis 4 "Number of entries per bin"
+
+/analysis/h2/setX 5 100 0 0.031
+/analysis/h2/setXaxis 5 "Angle of secondary e (rad)" #ionization
+/analysis/h2/setY 5 100 0 0.005
+/analysis/h2/setYaxis 5 "Angle of primary muon (rad)"
+/analysis/h2/setZaxis 5 "Number of entries per bin"
+
+/analysis/h2/setX 6 100 0 0.031
+/analysis/h2/setXaxis 6 "Angle of secondary e (rad)" #pair production
+/analysis/h2/setY 6 100 0 0.005
+/analysis/h2/setYaxis 6 "Angle of primary muon (rad)"
+/analysis/h2/setZaxis 6 "Number of entries per bin"
+
+/analysis/h2/setX 7 100 0 0.031
+/analysis/h2/setXaxis 7 "Angle of secondary e (rad)" #ionization, cut 0.5 GeV
+/analysis/h2/setY 7 100 0 0.005
+/analysis/h2/setYaxis 7 "Angle of primary muon (rad)"
+/analysis/h2/setZaxis 7 "Number of entries per bin"
+
+/analysis/h2/setX 8 100 0 0.031
+/analysis/h2/setXaxis 8 "Angle of secondary e (rad)" #pair production, cut 0.5 GeV
+/analysis/h2/setY 8 100 0 0.005
+/analysis/h2/setYaxis 8 "Angle of primary muon (rad)"
+/analysis/h2/setZaxis 8 "Number of entries per bin"
+
+/analysis/h2/setX 9 100 0 0.031
+/analysis/h2/setXaxis 9 "Angle of secondary e (rad)" #ionization, cut 1 GeV
+/analysis/h2/setY 9 100 0 0.005
+/analysis/h2/setYaxis 9 "Angle of primary muon (rad)"
+/analysis/h2/setZaxis 9 "Number of entries per bin"
+
+/analysis/h2/setX 10 100 0 0.031
+/analysis/h2/setXaxis 10 "Angle of secondary e (rad)" #pair production, cut 1 GeV
+/analysis/h2/setY 10 100 0 0.005
+/analysis/h2/setYaxis 10 "Angle of primary muon (rad)"
+/analysis/h2/setZaxis 10 "Number of entries per bin"
+
+
+
+
 
 #
 /run/printProgress 1000

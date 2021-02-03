@@ -7,3 +7,13 @@ processID = 3; //Bremsstrahlung
 processID = 4; //nuclear interaction
 
 19/1/2021 Version 3: Axis range in some energy histograms increased.
+
+26/1/2021 Version 4: 2D plot axes swapped. nTuple added.
+
+26/1/2021 Version 5: Angles and energies calculated for all charged particles at target's exit.
+
+27/1/2021 Version 6: Charged track multiplicity counted.
+
+2/2/2021 Version 7: Angles and energies calculated for each process separately.
+
+
